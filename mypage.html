@@ -1,13 +1,15 @@
 <html>
 <head>
     <h1 id="title"> <i id="cloud"class="fas fa-cloud" style="font-size:48px;color:whitesmoke;"></i>7.5</h1>
+    
+  
    
     
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-    <div id="mydata"></div>
-    <div id="myphoto"></div>
+    
+    
     <ul id="nav">
   <li><a href="index.html" >Home</a></li>
   <li><a id="gg" href="https://colerobertsmithparsons.github.io/y10web/purpledot/Purpledot.html">Search</a></li>
@@ -16,21 +18,30 @@
   <li><a onclick=chBackcolor('black')><i id="moon"class="fas fa-moon" style="font-size:23px;color:whitesmoke;"></i></a></li>
 </ul>
     </head>
+    
+      <center><div id="myinfo" > <div id="myphoto"></div> <div id="mydata"></div></div></center>
+    
     <body style="background-color:80ccff;">
     <br>
        
     <style>
         
+        #myinfo{
+            background-color: cce6ff;
+            height: 600;
+            width: 500;
+            border-radius: 30px; 
+            padding: 20;
+        }
+        
         #mydata{
-            text-align: right;
-            font-family: sans-serif;
+            text-align: center;
+            font-family: tahoma;
             font-weight: bold;
             font-size: 20;
         }
         #myphoto{
-            position: absolute;
-            top: 70;
-            left:1260;
+          padding: 30px;
         }
         
          ul {
@@ -105,7 +116,7 @@ color:red;
                 mydiv = document.getElementById("mydata");
                 mydiv.innerHTML = name
                 myphotodiv = document.getElementById("myphoto");
-                myphotodiv.innerHTML = "<img src='" + imageUrl + "' width='30px'/>";
+                myphotodiv.innerHTML = "<img src='" + imageUrl + "' width='300px'/>";
 
                 firebase.database().ref('/tweets/' + userId).once('value').then(function(snapshot) {
                     var data = (snapshot.val());
@@ -198,7 +209,8 @@ color:red;
             firebase.auth().signOut().then(function() {
             });
         }
-      function chBackcolor(color) {
+ 
+        function chBackcolor(color) {
    document.body.style.background = color;
 };
 function changeColor(color) {
@@ -206,19 +218,11 @@ function changeColor(color) {
 }
 
     
+    
     </script>
 
-    <body>
-        <button onclick="signin()">Sign in</button>
-        <button onclick="signout()">Sign out</button>
     
-        <form>
-            Tweet:<br>
-            <textarea id="twit" type="text" name="thetweet" cols="100" rows="4"></textarea>
-        </form> 
-        <button type="button" onclick="tweet()">Submit</button>
-    
-    <div id="mytweets"></div>
+   
     <div id="mydata"></div>
     <div id="myphoto"></div>
     </body>
