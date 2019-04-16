@@ -15,7 +15,10 @@
   <li><a id="gg" href="https://colerobertsmithparsons.github.io/y10web/purpledot/Purpledot.html">Search</a></li>
   <li><a id="#contact">My Feed</a></li>
   <li><a href="mypage.html">My Page</a></li>
-  <li><a onclick=chBackcolor('black')><i id="moon"class="fas fa-moon" style="font-size:23px;color:whitesmoke;"></i></a></li>
+  <li><a onclick=chBackcolor()><i id="moon"class="fas fa-moon" style="font-size:23px;color:whitesmoke;"></i><i id="moon"class="fas fa-sun" style="font-size:23px;color:whitesmoke;"></i></a></li>
+ 
+<li><a onclick=signin()><i id="Signin"class="fas fa-sign-in-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
+  <li><a onclick=signout()><i id="Signout"class="fas fa-sign-out-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
 </ul>
     </head>
     
@@ -30,7 +33,7 @@
             background-color: cce6ff;
             height: 600;
             width: 500;
-            border-radius: 30px; 
+            border-radius: 20%; 
             padding: 20;
         }
         
@@ -40,9 +43,14 @@
             font-weight: bold;
             font-size: 20;
         }
-        #myphoto{
-          padding: 30px;
-        }
+        
+        .avatar {
+  vertical-align: middle;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+       
         
          ul {
   list-style-type: none;
@@ -116,7 +124,7 @@ color:red;
                 mydiv = document.getElementById("mydata");
                 mydiv.innerHTML = name
                 myphotodiv = document.getElementById("myphoto");
-                myphotodiv.innerHTML = "<img src='" + imageUrl + "' width='300px'/>";
+                myphotodiv.innerHTML = "<img src='" + imageUrl + "' class='avatar'/>";
 
                 firebase.database().ref('/tweets/' + userId).once('value').then(function(snapshot) {
                     var data = (snapshot.val());
@@ -210,21 +218,28 @@ color:red;
             });
         }
  
-        function chBackcolor(color) {
-   document.body.style.background = color;
-};
-function changeColor(color) {
-   document.getElementsByClassName('forma').onclick = changeColor;
-}
-
+    var chColNum = 0;
     
+        function chBackcolor() {
+        
+            if (chColNum % 2 == 0) {
+                document.body.style.background = 'black';
+              document.getElementById("myinfo").style.background = '#b3b3b3';
+            } else {
+                document.body.style.background = '#80ccff';
+              document.getElementById("myinfo").style.background = '#cce6ff';
+            }
+            
+            chColNum++;
+}
+   
     
     </script>
 
     
    
     <div id="mydata"></div>
-    <div id="myphoto"></div>
+    <div id="myphoto" ></div>
     </body>
 
     
