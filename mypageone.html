@@ -1,6 +1,6 @@
 <html>
 <head>
-    <h1 id="title"> <i id="cloud"class="fas fa-cloud" style="font-size:48px;color:whitesmoke;"></i>7.5</h1>
+    <h1 id="title"> <i id="cloud"class="fas fa-cloud" style="font-size:48px;color:whitesmoke;"></i>7</h1>
    
     
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
      <ul id="nav">
   <li><a href="index.html" >Home</a></li>
   <li><a id="gg" href="https://colerobertsmithparsons.github.io/y10web/purpledot/Purpledot.html">Search</a></li>
-  <li><a id="#contact">My Feed</a></li>
+ 
   <li><a href="mypage.html">My Page</a></li>
   <li><a onclick=chBackcolor()><i id="moon"class="fas fa-moon" style="font-size:23px;color:whitesmoke;"></i><i id="moon"class="fas fa-sun" style="font-size:23px;color:whitesmoke;"></i></a></li>
  
@@ -18,24 +18,49 @@
 </ul>
     </head>
     
-      <center><div id="myinfo" > <div id="myphoto"></div> <div id="mydata"></div> <div id="user.email"></div></div></center>
-    
-        <center><div id="myposts"></div></center>
+      <center><div id="myinfo" > <div id="myphoto"></div> <div id="mydata"></div> <div id="mytweets"></div></div></center>
+    <br>
+  
+        <center><div id="myposts"> <h2 id="recentposts">Recent Posts</h2> <div id="mytweets"></div></div></center>
            
     <body style="background-color:80ccff;">
     <br>
        
     <style>
         
-        #myposts {
-            background: ce6ff;
-            width: 500;
-            height: 400;
+        
+        #recentposts {
+            font-family: tahoma;
+            color: 666666;
+        }
+        
+        mytab {
+            width: 300;
+            padding: 20px;
+            position: absolute;
+            top: 700;
+            
+           
+            
+        }
+        
+        #mytweets{
+            position: absolute;
+            top: 630;
+            left:620;
+        }
+        
+        #myposts{
+            background-color: cce6ff;
+            width: 300;
+            height: 700;
+            border-radius:20%;
+            padding: 30;
         }
         
         #myinfo{
             background-color: cce6ff;
-            height: 400;
+            height: 310;
             width: 500;
             border-radius: 20%; 
             padding: 20;
@@ -195,15 +220,10 @@ color:red;
                     var date = new Date(data[u][t].time);
                     var time = date.toString();
                     if (data[u][t].img != "") {
-                        mytab = mytab + "<td><img src='" + users[u].profile_picture + "' class='avatar' ></td>";
-                        mytab = mytab + "<td>" + users[u].email + "</td>";
-                        mytab = mytab + "<td>" + data[u][t].tweet + "</td>";
-                        mytab = mytab + "<td>" + time + "<br><img src='" + data[u][t].img + "' width='300px'></td>";
+                      
+                        mytab = mytab + "<td>" +  "<br><img src='" + data[u][t].img + "' width='200px'></td>";
                     } else {
-                        mytab = mytab + "<td><img src='" + users[u].profile_picture + "' class='avatar'></td>";
-                        mytab = mytab + "<td>" + users[u].email + "</td>";
-                        mytab = mytab + "<td>" + data[u][t].tweet + "</td>";
-                        mytab = mytab + "<td>" + time + "</td>";
+                       
                         
                         
                     } 
@@ -265,7 +285,7 @@ color:red;
             firebase.auth().signOut().then(function() {
             });
         }
-    
+    var chColNum=0;
         function chBackcolor() {
         
             if (chColNum % 2 == 0) {
