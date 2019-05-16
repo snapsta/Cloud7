@@ -1,0 +1,167 @@
+<html>
+<head>
+    <h1 id="title"> <i id="cloud"class="fas fa-cloud" style="font-size:48px;color:whitesmoke;"></i>7</h1>
+   
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <div id="mydata"></div>
+    <div id="myphoto"></div>
+    <ul id="nav">
+  <li><a href="index.html" >Home</a></li>
+  <li><a id="gg" href="https://colerobertsmithparsons.github.io/y10web/purpledot/Purpledot.html">Search</a></li>      
+  <li><a id="#contact">My Feed</a></li>
+  <li><a href="mypage.html">My Page</a></li> 
+  <li><a onclick=chBackcolor()><i id="moon"class="fas fa-moon" style="font-size:23px;color:whitesmoke;"></i><i id="moon"class="fas fa-sun" style="font-size:23px;color:whitesmoke;"></i></a></li>
+  <li><a onclick=signin()><i id="Signin"class="fas fa-sign-in-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
+  <li><a onclick=signout()><i id="Signout"class="fas fa-sign-out-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
+</ul>
+    </head>
+    <body style="background-color:80ccff;">
+    <br>
+       
+    <style>
+        
+        #mydata {
+            text-align: right;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 20;
+            color: #666666;
+        }
+        #myphoto{
+            position: absolute;
+            top: 68;
+            left:1260;
+          
+        }
+        
+         .avatar {
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+        
+         ul {
+  list-style-type: none;
+  margin: 30;
+  padding: 0;
+  overflow: hidden;
+  background-color: #666666;
+}
+li a{
+  float: left;
+}
+li a{
+  display: block;
+  color: white;
+  text-align: center;
+  font-family:monospace;
+  font-size: 20;
+  padding: 20;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #f2f2f2;
+color:red;
+}
+        #title{
+            font-family: arial;
+            text-align: center;
+            color: 666666;
+            
+        }
+    </style>
+   
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+
+        <style> 
+            #ha { 
+            
+            color: #ffffff;
+            font-family: monospace;
+            font-size: 50px;
+            }
+            
+            #mytweets { 
+            color: #666666;
+            font-family: monospace;
+            text-align: center;
+            font-size: 20px;    
+            position: absolute;
+            top: 475;
+            left: 270;
+    
+            }
+            
+            #twit { 
+            font-family: monospace;                                                      
+            color: #ffffff;
+            background-color: #595959;            
+            font-size: 20px
+            
+            }
+            
+            #butt { 
+            padding: 8px 10px;
+            background-color: #595959;
+            color: #ffffff;
+            font-family: monospace;
+            font-size: 18px;
+            border: none
+                
+            }
+            
+            #news2 { 
+            color: #ffffff;
+            background-color: #595959;
+            font-size: 14px;
+            font-family: monospace;
+                
+            }    
+        
+             #news { 
+            color: #ffffff;
+            background-color: #595959;
+            text-align: center;
+            height: 575px;
+            width: 1350px;
+            padding: 20px;
+            border-radius: 20%;
+            }
+            
+            #h1 {
+            color: #ffffff;
+            font-family: monospace;
+            font-size: 50px;
+            }
+            
+        </style>
+
+    <body>
+     
+    
+        <form>
+        <center><p1 id='ha'>What's New(s)</p1></center><br>
+        </form> 
+  
+        
+        
+<form> 
+<div id="news2" class="column"><h1> </h1></div>                   
+</form>        
+        
+        
+<form> 
+<center><div class="column" id="news" ><h1> In Todays News: </h1>   <h2>NHL</h2> <p1>Pavel Datsyuk has officially came out of retirement today and will gear up for the Chicago Blackhawks who are now our #1 pick for the 2019-20 stanley cup especially due to their new edition of Wayne Gretzky. </p1></div></center>
+</form>  
+
+ 
+        
+           
+    
+</html>
