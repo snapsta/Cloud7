@@ -10,9 +10,8 @@
     <div id="myphoto"></div>
     <ul id="nav">
   <li><a href="index.html" >Home</a></li>
-  <li><a id="gg" href="https://colerobertsmithparsons.github.io/y10web/purpledot/Purpledot.html">Search</a></li>      
+  <li><a id="gg" href="news.html">News</a></li>      
   <li><a id="#contact">My Feed</a></li>
-  <li><a href="mypage.html">My Page</a></li> 
   <li><a onclick=chBackcolor()><i id="moon"class="fas fa-moon" style="font-size:23px;color:whitesmoke;"></i><i id="moon"class="fas fa-sun" style="font-size:23px;color:whitesmoke;"></i></a></li>
   <li><a onclick=signin()><i id="Signin"class="fas fa-sign-in-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
   <li><a onclick=signout()><i id="Signout"class="fas fa-sign-out-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
@@ -128,9 +127,9 @@ color:red;
             color: #ffffff;
             background-color: #595959;
             text-align: center;
-            height: 575px;
+            height: 855px;
             width: 1350px;
-            padding: 20px;
+            padding: 30px;
             border-radius: 20%;
             }
             
@@ -141,6 +140,25 @@ color:red;
             }
             
         </style>
+        
+        <script>
+        var chColNum=0;
+        
+ function chBackcolor() {
+        
+            if (chColNum % 2 == 0) {
+                document.body.style.background = 'black';
+               
+            
+            } else {
+                document.body.style.background = '#80ccff';
+            
+            }
+            
+            chColNum++;
+        }
+    
+        </script>
 
     <body>
      
@@ -157,7 +175,13 @@ color:red;
         
         
 <form> 
-<center><div class="column" id="news" ><h1> In Todays News: </h1>   <h2>NHL</h2> <p1>Pavel Datsyuk has officially came out of retirement today and will gear up for the Chicago Blackhawks who are now our #1 pick for the 2019-20 stanley cup especially due to their new edition of Wayne Gretzky. </p1></div></center>
+<center><div class="column" id="news" ><h1> In Todays News: </h1>   <h3><a href="https://www.nhl.com/news"><img src="nhl.png"></a></h3> <p1>Mitch Marner has begun contract negotiations with the newly renewed president of operations Brennan (the man) Shanahan. More to follow in the coming weeks. </p1>
+<br>
+<br>
+<h3><a href="http://www.wwf.ca/ourplanet.cfm"><img src="wwf.png"></a></h3><p2>The World Wildlife Foundatio, has came up with a new documentary discussing wildlife in it's entirity. The Documentery took 4 years to film and is amazing.</p2>
+<br>  
+<br>
+<h3><a href="https://www.premierleague.com/"><img src="premier.png"></a></h3><p1>Breaking News: Manchester City has won the premier league for the second time in a row. The back to back champions are the first to do so since 2007-09 where manchester united had a treble for the league title. </p1></div></center>
 </form>  
 
  
