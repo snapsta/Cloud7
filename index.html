@@ -10,7 +10,7 @@
     <div id="myphoto"></div>
     <ul id="nav">
   <li><a href="index.html" >Home</a></li>
-  <li><a id="gg" href="https://colerobertsmithparsons.github.io/y10web/purpledot/Purpledot.html">Search</a></li>
+<li><a id="gg" href="news.html">News</a></li>    
  
   <li><a href="mypageone.html">My Page</a></li>
   <li><a onclick=chBackcolor()><i id="moon"class="fas fa-moon" style="font-size:23px;color:whitesmoke;"></i><i id="moon"class="fas fa-sun" style="font-size:23px;color:whitesmoke;"></i></a></li>
@@ -354,28 +354,110 @@ color:red;
 
     <body>
        
+     #ha { 
+            
+            color: #ffffff;
+            font-family: monospace;
+            font-size: 50px;
+            
+            
+            }
+            
+            #mytweets { 
+            color: #666666;
+            font-family: monospace;
+            float: left;
+            font-size: 14px;
+            position: absolute;
+            top: 450;
+            }
+            
+            #twit { 
+            font-family: monospace;                                                      
+            color: #ffffff;
+            background-color: #595959;            
+            font-size: 20px
+            
+            }
+            
+            #butt { 
+            padding: 8px 10px;
+            background-color: #595959;
+            color: #ffffff;
+            font-family: monospace;
+            font-size: 18px;
+            border: none;
+            position: absolute;
+            top: 440px;
+            left: 675px
+                
+            }
         
+            #news { 
+            color: #ffffff;
+            background-color: #595959;
+            float: right;
+            text-align: center;
+            height: 375px;
+            width: 325;
+            padding: 20px;
+            border-radius: 20%;
+            }    
+     
+     
+     
+            #news1 { 
+            height: 200px;
+            width: 275px;
+     
+            }
+     
+        #trend { 
+     
+            height: 160px;
+            width: 325;
+             color: #ffffff;
+            background-color: 595959;
+            float: right;
+            text-align: center;
+            border-radius: 20%;
+            padding: 10px;
+            top: 200;
+            right: 20px;
+            position: absolute
+     
+     }
+            
+        </style>
+
+    <body>
+     
+    
         <form>
         <center><p1 id='ha'>THE BOARD</p1></center><br>
-        <center><textarea id="twit" type="text" name="thetweet" cols="75" rows="2"></textarea></center>
+        <center><textarea id="twit" type="text" name="thetweet" cols="55" rows="2"></textarea></center>
         </form> 
-        <center><button id= "butt" type="button" onclick="tweet()">Submit</button></center>
-        
+        <center><button id="butt" type="button" onclick="tweet()">Submit</button></center>
         
 
-        <br>
-        <center><input id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" /></center>
-        <div id="imgTest" style="display:none;"></div>
+    <div class="column" id="news"><h1>In Todays News: </h1><a href="news.html"><img src="news1.png"></a>
+    </div>  
+        
+    <div class="column" id="trend"><h1>What's Trending?</h1><p1>@cole.parsons tweeted out saying : "it must be nice for people to wake up and not have to oil and charge their legs... smh" The tweet ended up getting 5 likes an all time high for cloud 7</p1></div>
+
+        
         
     <div id="mytweets"></div>
     <div id="mydata"></div>
     <div id="myphoto"></div>
-        
-        
-        
-        
     </body>
 
+        
+         <br>
+        <center><input id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" /></center>
+        <div id="imgTest" style="display:none;"></div>
+  
+    </body>    
     
 
     
