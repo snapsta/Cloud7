@@ -1,31 +1,30 @@
 <html>
 <head>
-    <h1 id="title"> <i id="cloud"class="fas fa-cloud" style="font-size:48px;color:whitesmoke;"></i>7</h1>
+    <h1 id="title" class="glow"> <i id="cloud"class="fas fa-cloud" style="font-size:40px;color:whitesmoke;"></i>7</h1>
    
     
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-    <div id="mydata"></div>
-    <div id="myphoto"></div>
-    <ul id="nav">
+  <div id="mydata"></div>
+  <div id="myphoto"></div>
+<ul id="nav">
   <li><a href="index.html" >Home</a></li>
-<li><a id="gg" href="news.html">News</a></li>    
- 
-  <li><a href="mypageone.html">My Page</a></li>
+  <li><a id="gg" href="news.html">News</a></li>      
+  <li><a id="#contact">My Page</a></li>
   <li><a onclick=chBackcolor()><i id="moon"class="fas fa-moon" style="font-size:23px;color:whitesmoke;"></i><i id="moon"class="fas fa-sun" style="font-size:23px;color:whitesmoke;"></i></a></li>
   <li><a onclick=signin()><i id="Signin"class="fas fa-sign-in-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
   <li><a onclick=signout()><i id="Signout"class="fas fa-sign-out-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
 </ul>
+    
     </head>
     <body style="background-color:80ccff;">
-    <br>
        
     <style>
       
        
     
-         table {
+        table {
             background-color: white;
             list-style-type: none;
             margin: 30;
@@ -58,7 +57,7 @@
             font-size: 10px;
             border: none;
             position: absolute;
-            top: 390px;
+            top: 406px;
             left: 600;
             
         }
@@ -121,9 +120,9 @@ color:red;
             font-family:arial;
             text-align: center;
             color: 666666;
+            font-size: 28px
             
         }
-        
         
       
     
@@ -165,7 +164,6 @@ color:red;
                 mydiv.innerHTML = name
                 myphotodiv = document.getElementById("myphoto");
                 myphotodiv.innerHTML = "<img src='" + imageUrl + "' class='avatar'/>";
-
                 firebase.database().ref('/tweets').once('value').then(function(snapshot) {
                     var data = (snapshot.val());
                     if (data == null) {
@@ -188,7 +186,6 @@ color:red;
         }); // end check auth state
         
         function encodeImageFileAsURL() {
-
             var filesSelected = document.getElementById("inputFileToLoad").files;
             if (filesSelected.length > 0) {
                 var fileToLoad = filesSelected[0];
@@ -235,12 +232,12 @@ color:red;
                         mytab = mytab + "<td><img src='" + users[u].profile_picture + "' class='avatar' ></td>";
                         mytab = mytab + "<td>" + users[u].email + "</td>";
                         mytab = mytab + "<td>" + data[u][t].tweet + "</td>";
-                        mytab = mytab + "<td>" + time + "<br><img src='" + data[u][t].img + "' width='300px'></td>";
+                        mytab = mytab + "<td>" + "<br><img src='" + data[u][t].img + "' width='300px'></td>";
                     } else {
                         mytab = mytab + "<td><img src='" + users[u].profile_picture + "' class='avatar'></td>";
                         mytab = mytab + "<td>" + users[u].email + "</td>";
                         mytab = mytab + "<td>" + data[u][t].tweet + "</td>";
-                        mytab = mytab + "<td>" + time + "</td>";
+                  
                         
                         
                     } 
@@ -319,10 +316,8 @@ color:red;
         }
     
     </script>
-
-    <body>
-       
-     #ha { 
+ <style> 
+            #ha { 
             
             color: #ffffff;
             font-family: monospace;
@@ -364,14 +359,15 @@ color:red;
             #news { 
             color: #ffffff;
             background-color: #595959;
-            float: right;
             text-align: center;
             height: 375px;
             width: 325;
             padding: 20px;
             border-radius: 20%;
+            top: 680;
+            right: 20px;
+            position: absolute
             }    
-     
      
      
             #news1 { 
@@ -383,18 +379,40 @@ color:red;
         #trend { 
      
             height: 160px;
-            width: 325;
+            width: 335;
              color: #ffffff;
             background-color: 595959;
             float: right;
             text-align: center;
             border-radius: 20%;
             padding: 10px;
-            top: 200;
+            top: 470;
             right: 20px;
             position: absolute
+                
      
      }
+     
+
+.glow {
+  font-size: 80px;
+  color: #fff; 
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #bfbfbf, 0 0 40px #bfbfbf, 0 0 50px #bfbfbf, 0 0 60px #bfbfbf, 0 0 70px #bfbfbf;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #ffffff, 0 0 30px #404040, 0 0 40px #404040, 0 0 50px #404040, 0 0 60px #404040, 0 0 70px #404040, 0 0 80px #404040;
+  }
+}
+
             
         </style>
 
@@ -402,10 +420,15 @@ color:red;
      
     
         <form>
-        <center><p1 id='ha'>THE BOARD</p1></center><br>
+        <center><p1 class="glow">THE BOARD</p1></center><br>
         <center><textarea id="twit" type="text" name="thetweet" cols="55" rows="2"></textarea></center>
         </form> 
+        <br>
+        <br>
+        <br>
         <center><button id="butt" type="button" onclick="tweet()">Submit</button></center>
+        <br>
+        <br>
         
 
     <div class="column" id="news"><h1>In Todays News: </h1><a href="news.html"><img src="news1.png"></a>
@@ -414,7 +437,10 @@ color:red;
     <div class="column" id="trend"><h1>What's Trending?</h1><p1>@cole.parsons tweeted out saying : "it must be nice for people to wake up and not have to oil and charge their legs... smh" The tweet ended up getting 5 likes an all time high for cloud 7</p1></div>
 
         
-        
+    <br>
+    <br>
+    <br>
+    
     <div id="mytweets"></div>
     <div id="mydata"></div>
     <div id="myphoto"></div>
@@ -423,10 +449,10 @@ color:red;
         
          <br>
         <center><input id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" /></center>
+        <br>
+        <br>
         <div id="imgTest" style="display:none;"></div>
   
     </body>    
-    
-
     
 </html>
