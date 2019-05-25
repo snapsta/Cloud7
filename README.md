@@ -1,1 +1,1 @@
-https://snapsta.github.io/Cloud7/
+https://snapsta.github.io/Cloud7/index.html
