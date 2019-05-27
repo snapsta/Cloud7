@@ -11,7 +11,7 @@
 <ul id="nav">
   <li><a href="index.html" >Home</a></li>
   <li><a id="gg" href="news.html">News</a></li>      
-  <li><a id="#contact">My Page</a></li>
+  <li><a href="mypageone.html">My Page</a></li>
   <li><a onclick=chBackcolor()><i id="moon"class="fas fa-moon" style="font-size:23px;color:whitesmoke;"></i><i id="moon"class="fas fa-sun" style="font-size:23px;color:whitesmoke;"></i></a></li>
   <li><a onclick=signin()><i id="Signin"class="fas fa-sign-in-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
   <li><a onclick=signout()><i id="Signout"class="fas fa-sign-out-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
@@ -222,7 +222,7 @@ color:red;
           
             users = data[1]; // put on top, because changed data - not good coding change later
             data = data[0];
-            
+            var count = 0;
             for (var u in data) {
                 for (var t in data[u]) {
                     mytab = mytab + "<tr>";
@@ -233,15 +233,15 @@ color:red;
                         mytab = mytab + "<td>" + users[u].email + "</td>";
                         mytab = mytab + "<td>" + data[u][t].tweet + "</td>";
                         mytab = mytab + "<td>" + "<br><img src='" + data[u][t].img + "' width='300px'></td>";
+                        mytab = mytab + "<td>" + "<button onclick='like("+count+") ' id='like" + count + "'> <i class='far fa-thumbs-up'></i></button></td>";
                     } else {
                         mytab = mytab + "<td><img src='" + users[u].profile_picture + "' class='avatar'></td>";
                         mytab = mytab + "<td>" + users[u].email + "</td>";
                         mytab = mytab + "<td>" + data[u][t].tweet + "</td>";
-                  
-                        
-                        
+                         mytab = mytab + "<td>" + "<button onclick='like("+count+") ' id='like" + count + "'> <i class='far fa-thumbs-up'></i></button></td>";    
                     } 
                     mytab = mytab + "</tr>";
+                     var count = count+1; 
                 }   
             }
             //mylist = mylist + "</ul>";
@@ -314,6 +314,14 @@ color:red;
             
             chColNum++;
         }
+        
+         function like(count) {
+            var likecount= document.getElementById('like' + count);
+            var likescount = + 1;
+            document.getElementById('like' + count).innerHTML = "<i class='far fa-thumbs-up'></i>" + likescount;
+           // firebase.database().ref('/tweets/' + userId +  "/").update({likes:likescount});
+            }
+    
     
     </script>
  <style> 
@@ -333,6 +341,7 @@ color:red;
             font-size: 14px;
             position: absolute;
             top: 450;
+            width: 1050;
             }
             
             #twit { 
@@ -393,7 +402,6 @@ color:red;
      
      }
      
-
 .glow {
   font-size: 80px;
   color: #fff; 
@@ -402,7 +410,6 @@ color:red;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
 }
-
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #bfbfbf, 0 0 40px #bfbfbf, 0 0 50px #bfbfbf, 0 0 60px #bfbfbf, 0 0 70px #bfbfbf;
@@ -412,6 +419,7 @@ color:red;
     text-shadow: 0 0 20px #ffffff, 0 0 30px #404040, 0 0 40px #404040, 0 0 50px #404040, 0 0 60px #404040, 0 0 70px #404040, 0 0 80px #404040;
   }
 }
+     
 
             
         </style>
@@ -434,7 +442,7 @@ color:red;
     <div class="column" id="news"><h1>In Todays News: </h1><a href="news.html"><img src="news1.png"></a>
     </div>  
         
-    <div class="column" id="trend"><h1>What's Trending?</h1><p1>@cole.parsons tweeted out saying : "it must be nice for people to wake up and not have to oil and charge their legs... smh" The tweet ended up getting 5 likes an all time high for cloud 7</p1></div>
+    <div class="column" id="trend"><h1>What's Trending?</h1><p1>@andrew.gajer@ucc.on.ca tweeted out saying : "it must be nice for people to wake up and not have to oil and charge their legs... smh" The tweet ended up getting 5 likes an all time high for cloud 7</p1></div>
 
         
     <br>

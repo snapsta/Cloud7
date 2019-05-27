@@ -1,6 +1,6 @@
 <html>
 <head>
-    <h1 id="title"> <i id="cloud"class="fas fa-cloud" style="font-size:48px;color:whitesmoke;"></i>7</h1>
+    <h1 id="title" class="glow"> <i id="cloud"class="fas fa-cloud" style="font-size:48px;color:whitesmoke;"></i>7</h1>
    
     
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
     <ul id="nav">
   <li><a href="index.html" >Home</a></li>
   <li><a id="gg" href="news.html">News</a></li>      
-  <li><a id="#contact">My Page</a></li>
+  <li><a href="mypageone.html">My Page</a></li>
   <li><a onclick=chBackcolor()><i id="moon"class="fas fa-moon" style="font-size:23px;color:whitesmoke;"></i><i id="moon"class="fas fa-sun" style="font-size:23px;color:whitesmoke;"></i></a></li>
   <li><a onclick=signin()><i id="Signin"class="fas fa-sign-in-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
   <li><a onclick=signout()><i id="Signout"class="fas fa-sign-out-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
@@ -70,6 +70,8 @@ color:red;
             font-family: arial;
             text-align: center;
             color: 666666;
+            font-size: 28px
+
             
         }
     </style>
@@ -139,6 +141,23 @@ color:red;
             font-size: 50px;
             }
             
+            .glow {
+  font-size: 80px;
+  color: #fff; 
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #bfbfbf, 0 0 40px #bfbfbf, 0 0 50px #bfbfbf, 0 0 60px #bfbfbf, 0 0 70px #bfbfbf;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #ffffff, 0 0 30px #404040, 0 0 40px #404040, 0 0 50px #404040, 0 0 60px #404040, 0 0 70px #404040, 0 0 80px #404040;
+  }
+}
         </style>
         
         <script>
@@ -175,7 +194,7 @@ color:red;
         
         
 <form> 
-<center><div class="column" id="news" ><h1> In Todays News: </h1>   <h3><a href="https://www.nhl.com/news"><img src="nhl.png"></a></h3> <p1>Mitch Marner has begun contract negotiations with the newly renewed president of operations Brennan (the man) Shanahan. More to follow in the coming weeks. </p1>
+<center><div class="column" id="news" ><h1> In Todays News: </h1>   <h3><a href="https://www.nhl.com/news"><img src="nhl.png" width="200"></a></h3> <p1>Mitch Marner has begun contract negotiations with the newly renewed president of operations Brennan (the man) Shanahan. More to follow in the coming weeks. </p1>
 <br>
 <br>
 <h3><a href="http://www.wwf.ca/ourplanet.cfm"><img src="wwf.png"></a></h3><p2>The World Wildlife Foundatio, has came up with a new documentary discussing wildlife in it's entirity. The Documentery took 4 years to film and is amazing.</p2>

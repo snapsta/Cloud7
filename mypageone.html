@@ -1,6 +1,6 @@
 <html>
 <head>
-    <h1 id="title"> <i id="cloud"class="fas fa-cloud" style="font-size:48px;color:whitesmoke;"></i>7</h1>
+    <h1 id="title" class="glow"> <i id="cloud"class="fas fa-cloud" style="font-size:40px;color:whitesmoke;"></i>7</h1>
    
     
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,17 +8,26 @@
 
      <ul id="nav">
   <li><a href="index.html" >Home</a></li>
-  <li><a id="gg" href="https://colerobertsmithparsons.github.io/y10web/purpledot/Purpledot.html">Search</a></li>
- 
+  <li><a id="gg" href="news.html">News</a></li>      
   <li><a href="mypage.html">My Page</a></li>
   <li><a onclick=chBackcolor()><i id="moon"class="fas fa-moon" style="font-size:23px;color:whitesmoke;"></i><i id="moon"class="fas fa-sun" style="font-size:23px;color:whitesmoke;"></i></a></li>
- 
 <li><a onclick=signin()><i id="Signin"class="fas fa-sign-in-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
   <li><a onclick=signout()><i id="Signout"class="fas fa-sign-out-alt" style="font-size:23px;color:whitesmoke;"></i></a></li>
 </ul>
     </head>
     
-      <center><div id="myinfo" > <div id="myphoto"></div> <div id="mydata"></div> <div id="mytweets"></div></div></center>
+      <center><div id="myinfo" > <div id="myphoto"></div> <div id="mydata"></div> <div id="mytweets"></div>
+          <br>
+          <div id = "demo2"> </div>
+          <button onclick="changebio()" id="chngbio"> Edit </button>
+          <br>
+          <br>
+    <textarea rows = "3" cols = "30" id="newbio"></textarea>
+          <br>
+    <button type="button" onclick="bio()" id="submitbutton">Submit</button>
+  
+          
+          </div></center>
     <br>
   
         <center><div id="myposts"> <h2 id="recentposts">Recent Posts</h2> <div id="mytweets"></div></div></center>
@@ -27,6 +36,40 @@
     <br>
        
     <style>
+        
+        #demo2{
+            text-align: center;
+            font-family: tahoma;
+            font-weight: bold;
+            font-size: 15;
+            color: 666666;
+        }
+        
+        
+        #chngbio {
+             font-family: monospace;                                                      
+            color: #ffffff;
+            background-color: #595959;
+            font-size: 10px
+    
+        }
+        
+        #newbio{
+            display: none;
+             font-family: monospace;                                                      
+            color: #ffffff;
+            background-color: #595959;
+            font-size: 20px
+        }
+        
+        #submitbutton{
+            display: none;
+            font-family: monospace;                                                      
+            color: #ffffff;
+            background-color: #595959;
+            font-size: 10px
+            
+        }
         
         
         #recentposts {
@@ -46,7 +89,7 @@
         
         #mytweets{
             position: absolute;
-            top: 630;
+            top: 800;
             left:620;
         }
         
@@ -60,7 +103,7 @@
         
         #myinfo{
             background-color: cce6ff;
-            height: 310;
+            height: 400;
             width: 500;
             border-radius: 20%; 
             padding: 20;
@@ -112,8 +155,27 @@ color:red;
             font-family:arial;
             text-align: center;
             color: 666666;
+            font-size: 28px
             
         }
+        
+    .glow {
+  font-size: 80px;
+  color: #fff; 
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #bfbfbf, 0 0 40px #bfbfbf, 0 0 50px #bfbfbf, 0 0 60px #bfbfbf, 0 0 70px #bfbfbf;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #ffffff, 0 0 30px #404040, 0 0 40px #404040, 0 0 50px #404040, 0 0 60px #404040, 0 0 70px #404040, 0 0 80px #404040;
+  }
+}
         
     </style>
    
@@ -164,7 +226,12 @@ color:red;
                       firebase.database().ref('/users').once('value').then(function(snapshot) { 
                         var userdata = (snapshot.val());
                         if (userdata != null) {
+                            
+                            console.log(userdata)
+                            
                            dataarray = [data,userdata]
+                            mybiodiv = document.getElementById("demo2");
+                mybiodiv.innerHTML = userdata[userId].bio;
                            console.log(dataarray)
                            updatetweets(dataarray); 
                         }
@@ -291,13 +358,69 @@ color:red;
             if (chColNum % 2 == 0) {
                 document.body.style.background = 'black';
               document.getElementById("myinfo").style.background = '#b3b3b3';
+                document.getElementById("myposts").style.background = '#b3b3b3';
             } else {
                 document.body.style.background = '#80ccff';
               document.getElementById("myinfo").style.background = '#cce6ff';
+                 document.getElementById("myposts").style.background = '#cce6ff';
+                
             }
             
             chColNum++;
 }
+        
+        function bio() {
+            
+            //if (bioischanged = true) {
+               //mybiodiv = document.getElementById("demo2");
+                //mybiodiv.innerHTML = changedbio;
+                
+               
+                
+            //}else{
+              var changedbio = document.getElementById("newbio").value;
+            console.log(changedbio);
+          
+                 firebase.database().ref('/users/' + userId).update({bio : changedbio});
+             
+            mybiodiv = document.getElementById("demo2");
+            mybiodiv.innerHTML = changedbio;
+            var bioischanged = true;
+            
+        //}
+    }
+        
+        var hideorshow=0;
+        function changebio(){
+            
+            if ((hideorshow % 2) == 0) {
+            
+                 document.getElementById('newbio').style.display = 'block';
+                 //document.getElementbyId("newbio").style.display = 'block';
+               // document.getElementbyId('submitbutton').style.display = 'block';
+                document.getElementById('submitbutton').style.display = 'block';
+                document.getElementById('myinfo').style.height = '500';
+               
+            } else {
+                 document.getElementById('newbio').style.display = 'none';
+                 document.getElementById('submitbutton').style.display = 'none';
+                document.getElementById('myinfo').style.height = '400';
+            }
+            
+            hideorshow++;
+            
+             for (var u in users) {
+                        if (users[u].email == email) {
+                            newbio = users[u].bio
+                            //facebookUrl = "https://www.facebook.com/" + facebookname;
+                            //alert(facebookUrl);
+                        }
+                    } 
+            
+        }
+        
+       
+           
     
     </script>
 
